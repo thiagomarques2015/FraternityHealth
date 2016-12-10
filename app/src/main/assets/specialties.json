@@ -1,0 +1,121 @@
+{
+  "specialties" : [
+    {
+      "name" : "Acupuntura"
+    },
+    {
+      "name" : "Alergologia"
+    },
+    {
+      "name" : "Cardiologia"
+    },
+    {
+      "name" : "Cardiologia Pediatrica"
+    },
+    {
+      "name" : "Cirurgia Geral"
+    },
+    {
+      "name" : "Cirurgia Plástica"
+    },
+    {
+      "name" : "Cirurgia Vascular"
+    },
+    {
+      "name" : "Clínica Geral"
+    },
+    {
+      "name" : "Coloproctologia"
+    },
+    {
+      "name" : "Dermatologia"
+    },
+    {
+      "name" : "Endocrinologia"
+    },
+    {
+      "name" : "Endocrinologia Pediatrica"
+    },
+    {
+      "name" : "Fisioterapia"
+    },
+    {
+      "name" : "Gastroenterologia"
+    },
+    {
+      "name" : "Gastroenterologia Pediatrica"
+    },
+    {
+      "name" : "Geriatria"
+    },
+    {
+      "name" : "Ginecologia/Obstetrícia"
+    },
+    {
+      "name" : "Hematologia"
+    },
+    {
+      "name" : "Hepatologia"
+    },
+    {
+      "name" : "Infectologia"
+    },
+    {
+      "name" : "Mastologia"
+    },
+    {
+      "name" : "Nefrologia"
+    },
+    {
+      "name" : "Nefrologia Pediatrica"
+    },
+    {
+      "name" : "Neurologia"
+    },
+    {
+      "name" : "Neurologia Pediatrica"
+    },
+    {
+      "name" : "Netrição"
+    },
+    {
+      "name" : "Nutrologia"
+    },
+    {
+      "name" : "Odontologia"
+    },
+    {
+      "name" : "Oftalmologia"
+    },
+    {
+      "name" : "Ortopedia"
+    },
+    {
+      "name" : "Otorrinolaringologia"
+    },
+    {
+      "name" : "Pediatria"
+    },
+    {
+      "name" : "Pneumologia"
+    },
+    {
+      "name" : "Pneumologia Pediatrica"
+    },
+    {
+      "name" : "Psicologia"
+    },
+    {
+      "name" : "Psiquiatria Pediatrica"
+    },
+    {
+      "name" : "Quiropraxia"
+    },
+    {
+      "name" : "Reumatologia"
+    },
+    {
+      "name" : "Urologia"
+    }
+  ]
+}
