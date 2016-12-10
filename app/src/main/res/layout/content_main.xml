@@ -38,28 +38,46 @@
 
         </LinearLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/available"
+            android:textColor="@android:color/white"
+            android:textSize="52sp"
+            android:text="236 vagas"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="10dp"
             android:layout_alignParentBottom="true"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
             <Button
-                android:padding="25dp"
+                android:paddingTop="18dp"
                 android:background="#00C853"
                 android:textColor="@android:color/white"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/content_main_button_size"
+                android:drawableTop="@drawable/calendar"
+                android:drawablePadding="5dp"
                 android:onClick="newScheduling"
+                android:layout_marginRight="10dp"
+                android:layout_marginEnd="10dp"
                 android:text="Novo Agendamento"/>
 
             <Button
-                android:padding="25dp"
+                android:paddingTop="25dp"
                 android:background="#0091EA"
                 android:textColor="@android:color/white"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Tornar-se médico solidário"/>
+                android:layout_width="0dp"
+                android:layout_height="@dimen/content_main_button_size"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/health_care"
+                android:text="Médico solidário"/>
 
         </LinearLayout>
 

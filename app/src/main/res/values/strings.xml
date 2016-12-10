@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">fraternityhealth</string>
+    <string name="app_name">Fraternity Health</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_speacilty">Escolha a consulta</string>
 </resources>

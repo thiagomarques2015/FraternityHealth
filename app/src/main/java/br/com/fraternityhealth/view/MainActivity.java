@@ -24,12 +24,15 @@
 
 package br.com.fraternityhealth.view;
 
+import android.app.ActionBar;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 
 import br.com.fraternityhealth.R;
 
@@ -39,6 +42,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        View decorView = getWindow().getDecorView();
+        // Hide the status bar.
+        int uiOptions = 0;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
+            uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+        }
+        decorView.setSystemUiVisibility(uiOptions);
         setContentView(R.layout.activity_main);
     }
 
