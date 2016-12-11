@@ -22,43 +22,33 @@
  * SOFTWARE.
  */
 
-package br.com.fraternityhealth.model;
+package br.com.fraternityhealth.control;
+
+import android.content.Context;
 
 import java.util.ArrayList;
+
+import br.com.fraternityhealth.model.ListSpecialty;
+import br.com.fraternityhealth.model.Specialty;
 
 /**
  * Created by Thiago on 10/12/2016.
  */
 
-public class Location {
-    private String state;
-    private ArrayList<String> cities;
+public class SpecialtyCtrl {
 
-    private Location(){
-        cities = new ArrayList<>();
+    private final Context context;
+    private ListSpecialty listSpecialty;
+
+    public SpecialtyCtrl(Context context) {
+        this.context = context;
     }
 
-    public static Location newInstance(){
-        return new Location();
+    public void setListSpecialty(ListSpecialty listSpecialty) {
+        this.listSpecialty = listSpecialty;
     }
 
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public void addCity(String city){
-        cities.add(city);
-    }
-
-    public void setCities(ArrayList<String> cities) {
-        this.cities = cities;
-    }
-
-    public ArrayList<String> getCities() {
-        return cities;
+    public ArrayList<Specialty> createList(){
+        return listSpecialty.createList(context);
     }
 }

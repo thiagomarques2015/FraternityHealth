@@ -25,33 +25,47 @@
 package br.com.fraternityhealth.control;
 
 import android.content.Context;
-import android.content.Intent;
+
+import com.google.gson.Gson;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import br.com.fraternityhealth.model.Location;
-import br.com.fraternityhealth.model.LocationSelected;
-import br.com.fraternityhealth.view.SpecialtyActivity;
+import br.com.fraternityhealth.model.AvailableSpecialty;
+import br.com.fraternityhealth.model.ListLocation;
+import br.com.fraternityhealth.model.ListSpecialty;
+import br.com.fraternityhealth.model.Specialty;
 
 /**
  * Created by Thiago on 10/12/2016.
  */
 
-public class CitySelected implements LocationSelected {
+public class SpecialtyListLocal implements ListSpecialty {
+
     @Override
-    public void selected(Context context, ArrayList<Location> list, Location location, int position) {
-        String state = location.getState();
-        String city = location.getCities().get(position);
+    public ArrayList<Specialty> createList(Context context) {
+        ArrayList<Specialty> specialties = new ArrayList<>();
+        String json = Json.loadJSONFromAsset(context, "specialties");
+        try {
+            JSONObject object = new JSONObject(json);
 
-        Intent intent = new Intent(context, SpecialtyActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-
-        Preferences.instance(context)
-                .editor()
-                .putString("state", state)
-                .putString("city", city)
-                .apply();
-
-        context.startActivity(intent);
+            JSONObject s = object.getJSONObject("specialties");
+            JSONArray sNames = s.names();
+            for(int i=0; i<sNames.length(); i++){
+                Specialty specialty = Specialty.newInstance();
+                String key = sNames.getString(i);
+                int available = s.getJSONObject(key).getInt("available");
+                specialty.setName(key);
+                specialty.setAvailable(available);
+                specialties.add(specialty);
+            }
+            return specialties;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

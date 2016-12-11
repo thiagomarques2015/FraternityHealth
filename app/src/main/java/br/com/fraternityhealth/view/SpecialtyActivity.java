@@ -35,16 +35,23 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
+
 import br.com.fraternityhealth.R;
 import br.com.fraternityhealth.control.Layout;
 import br.com.fraternityhealth.control.Json;
 import br.com.fraternityhealth.control.Preferences;
 import br.com.fraternityhealth.control.SpecialtyAdapter;
+import br.com.fraternityhealth.control.SpecialtyCtrl;
+import br.com.fraternityhealth.control.SpecialtyListLocal;
+import br.com.fraternityhealth.model.AdapterListener;
 import br.com.fraternityhealth.model.AvailableSpecialty;
+import br.com.fraternityhealth.model.Specialty;
 
-public class SpecialtyActivity extends AppCompatActivity {
+public class SpecialtyActivity extends AppCompatActivity implements AdapterListener {
 
     private static final String TAG = "SpecialtyActivity";
+    private ArrayList<Specialty> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,22 +81,31 @@ public class SpecialtyActivity extends AppCompatActivity {
     }
 
     private void createList() {
-        String json = Json.loadJSONFromAsset(this, "specialties");
-        Gson gson = new Gson();
-        AvailableSpecialty list = gson.fromJson(json, AvailableSpecialty.class);
-        Log.d(TAG, list.getSpecialties().size() + " available ");
+        SpecialtyCtrl control = new SpecialtyCtrl(this);
+        control.setListSpecialty(new SpecialtyListLocal());
+        list = control.createList();
+        Log.d(TAG, list.size() + " available ");
         createAdapter(list);
     }
 
-    private void createAdapter(AvailableSpecialty list) {
+    private void createAdapter(ArrayList<Specialty> list) {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        SpecialtyAdapter adapter = new SpecialtyAdapter(this, layoutManager, list.getSpecialties());
+        SpecialtyAdapter adapter = new SpecialtyAdapter(this, layoutManager, list);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.specialties);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
+        adapter.setListener(this);
     }
 
     public void openLocations(View view) {
         startActivity(new Intent(this, LocationActivity.class));
+    }
+
+    @Override
+    public void onItemClick(View view, int position) {
+        Specialty specialty = list.get(position);
+        Intent intent = new Intent(this, MedicalCenterActivity.class);
+        intent.putExtra("name", specialty.getName());
+        startActivity(intent);
     }
 }

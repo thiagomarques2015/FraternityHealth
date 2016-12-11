@@ -22,43 +22,36 @@
  * SOFTWARE.
  */
 
-package br.com.fraternityhealth.model;
+package br.com.fraternityhealth.control;
+
+import android.content.Context;
+import android.content.Intent;
 
 import java.util.ArrayList;
+
+import br.com.fraternityhealth.model.Location;
+import br.com.fraternityhealth.model.LocationSelected;
+import br.com.fraternityhealth.view.SpecialtyActivity;
 
 /**
  * Created by Thiago on 10/12/2016.
  */
 
-public class Location {
-    private String state;
-    private ArrayList<String> cities;
+public class LocationCitySelected implements LocationSelected {
+    @Override
+    public void selected(Context context, ArrayList<Location> list, Location location, int position) {
+        String state = location.getState();
+        String city = location.getCities().get(position);
 
-    private Location(){
-        cities = new ArrayList<>();
-    }
+        Intent intent = new Intent(context, SpecialtyActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 
-    public static Location newInstance(){
-        return new Location();
-    }
+        Preferences.instance(context)
+                .editor()
+                .putString("state", state)
+                .putString("city", city)
+                .apply();
 
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public void addCity(String city){
-        cities.add(city);
-    }
-
-    public void setCities(ArrayList<String> cities) {
-        this.cities = cities;
-    }
-
-    public ArrayList<String> getCities() {
-        return cities;
+        context.startActivity(intent);
     }
 }

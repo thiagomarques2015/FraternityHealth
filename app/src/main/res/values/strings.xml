@@ -3,4 +3,6 @@
     <string name="title_activity_speacilty">Escolha a consulta</string>
     <string name="title_activity_location">Escolha um estado</string>
     <string name="title_activity_location_cities">Escolha uma cidade</string>
+    <string name="vagancy">" vaga"</string>
+    <string name="title_activity_medical_center">Escolha o centro médico</string>
 </resources>

@@ -32,7 +32,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import br.com.fraternityhealth.model.ListItem;
+import br.com.fraternityhealth.model.ListLocation;
 import br.com.fraternityhealth.model.Location;
 import br.com.fraternityhealth.view.LocationActivity;
 
@@ -40,7 +40,7 @@ import br.com.fraternityhealth.view.LocationActivity;
  * Created by Thiago on 10/12/2016.
  */
 
-public class StatesLocal implements ListItem {
+public class LocationStatesLocal implements ListLocation {
     @Override
     public ArrayList<String> createList(Context context, ArrayList<Location> list) {
         String states = Json.loadJSONFromAsset(context, "states");
@@ -50,7 +50,7 @@ public class StatesLocal implements ListItem {
             JSONObject jStates = json.getJSONObject("states");
             JSONArray stateNames = jStates.names();
             for(int i = 0; i<stateNames.length(); i++){
-                Location location = new Location();
+                Location location = Location.newInstance();
                 String key = stateNames.getString(i);
                 // Adiciona o estado
                 location.setState(key);

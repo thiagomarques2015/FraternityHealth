@@ -30,6 +30,13 @@ package br.com.fraternityhealth.model;
 
 public class Specialty {
     private String name;
+    private int available;
+
+    private Specialty(){}
+
+    public static Specialty newInstance() {
+        return new Specialty();
+    }
 
     public String getName() {
         return name;
@@ -37,5 +44,13 @@ public class Specialty {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getAvailable() {
+        return available;
+    }
+
+    public void setAvailable(int available) {
+        this.available = available;
     }
 }

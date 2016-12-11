@@ -25,6 +25,10 @@
         <activity
             android:name=".view.LocationActivity"
             android:label="@string/title_activity_location"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".view.MedicalCenterActivity"
+            android:label="@string/title_activity_medical_center"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

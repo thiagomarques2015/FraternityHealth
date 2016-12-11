@@ -28,7 +28,7 @@ import android.content.Context;
 
 import java.util.ArrayList;
 
-import br.com.fraternityhealth.model.ListItem;
+import br.com.fraternityhealth.model.ListLocation;
 import br.com.fraternityhealth.model.Location;
 import br.com.fraternityhealth.model.LocationSelected;
 
@@ -37,7 +37,7 @@ import br.com.fraternityhealth.model.LocationSelected;
  */
 
 public class LocationCtrl {
-    private ListItem listItem;
+    private ListLocation listItem;
     private LocationSelected locationSelected;
     private final Context context;
     private ArrayList<Location> list;
@@ -58,7 +58,7 @@ public class LocationCtrl {
         this.locationSelected = locationSelected;
     }
 
-    public void setList(ListItem location) {
+    public void setList(ListLocation location) {
         this.listItem = location;
     }
 

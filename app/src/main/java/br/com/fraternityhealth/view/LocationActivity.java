@@ -33,12 +33,12 @@ import android.view.View;
 import java.util.ArrayList;
 
 import br.com.fraternityhealth.R;
-import br.com.fraternityhealth.control.CitySelected;
+import br.com.fraternityhealth.control.LocationCitySelected;
 import br.com.fraternityhealth.control.Layout;
 import br.com.fraternityhealth.control.LocationAdapter;
 import br.com.fraternityhealth.control.LocationCtrl;
-import br.com.fraternityhealth.control.StateSelected;
-import br.com.fraternityhealth.control.StatesLocal;
+import br.com.fraternityhealth.control.LocationStateSelected;
+import br.com.fraternityhealth.control.LocationStatesLocal;
 import br.com.fraternityhealth.model.AdapterListener;
 import br.com.fraternityhealth.model.Location;
 
@@ -76,7 +76,7 @@ public class LocationActivity extends AppCompatActivity implements AdapterListen
     }
 
     private void createStates() {
-        control.setList(new StatesLocal());
+        control.setList(new LocationStatesLocal());
         ArrayList<String> states = control.createList();
         createAdapter(states);
     }
@@ -104,16 +104,16 @@ public class LocationActivity extends AppCompatActivity implements AdapterListen
     }
 
     private void citySelected() {
-        control.setLocationSelected(new CitySelected());
+        control.setLocationSelected(new LocationCitySelected());
     }
 
     private void stateSelected() {
-        control.setLocationSelected(new StateSelected());
+        control.setLocationSelected(new LocationStateSelected());
     }
 
     public Location getExtraLocation() {
         if(!getIntent().hasExtra("state")) return null;
-        Location location = new Location();
+        Location location = Location.newInstance();
         location.setState(getIntent().getStringExtra("state"));
         location.setCities(getIntent().getStringArrayListExtra("cities"));
         return location;

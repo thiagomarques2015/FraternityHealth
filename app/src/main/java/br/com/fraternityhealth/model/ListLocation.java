@@ -32,6 +32,6 @@ import java.util.ArrayList;
  * Created by Thiago on 10/12/2016.
  */
 
-public interface ListItem {
+public interface ListLocation {
     ArrayList<String> createList(Context context, ArrayList<Location> list);
 }

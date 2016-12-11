@@ -1,121 +1,121 @@
 {
-  "specialties" : [
-    {
-      "name" : "Acupuntura"
+  "specialties" : {
+    "Acupuntura": {
+      "available" : 7
     },
-    {
-      "name" : "Alergologia"
+    "Alergologia" : {
+      "available": 0
     },
-    {
-      "name" : "Cardiologia"
+    "Cardiologia" : {
+      "available": 0
     },
-    {
-      "name" : "Cardiologia Pediatrica"
+    "Cardiologia Pediatrica" : {
+      "available": 0
     },
-    {
-      "name" : "Cirurgia Geral"
+    "Cirurgia Geral" : {
+      "available": 1
     },
-    {
-      "name" : "Cirurgia Plástica"
+    "Cirurgia Plástica" : {
+      "available" : 2
     },
-    {
-      "name" : "Cirurgia Vascular"
+    "Cirurgia Vascular" : {
+      "available": 0
     },
-    {
-      "name" : "Clínica Geral"
+    "Clínica Geral" : {
+      "available": 0
     },
-    {
-      "name" : "Coloproctologia"
+    "Coloproctologia" : {
+      "available": 0
     },
-    {
-      "name" : "Dermatologia"
+    "Dermatologia" : {
+      "available": 0
     },
-    {
-      "name" : "Endocrinologia"
+    "Endocrinologia" : {
+      "available" : 0
     },
-    {
-      "name" : "Endocrinologia Pediatrica"
+    "Endocrinologia Pediatrica" : {
+      "available": 0
     },
-    {
-      "name" : "Fisioterapia"
+    "Fisioterapia" : {
+      "available": 0
     },
-    {
-      "name" : "Gastroenterologia"
+    "Gastroenterologia" : {
+      "available": 0
     },
-    {
-      "name" : "Gastroenterologia Pediatrica"
+    "Gastroenterologia Pediatrica" : {
+      "available": 0
     },
-    {
-      "name" : "Geriatria"
+    "Geriatria" : {
+      "available" : 0
     },
-    {
-      "name" : "Ginecologia/Obstetrícia"
+    "Ginecologia/Obstetrícia" :{
+      "available": 0
     },
-    {
-      "name" : "Hematologia"
+    "Hematologia" : {
+      "available": 0
     },
-    {
-      "name" : "Hepatologia"
+    "Hepatologia" : {
+      "available": 0
     },
-    {
-      "name" : "Infectologia"
+    "Infectologia" : {
+      "available": 0
     },
-    {
-      "name" : "Mastologia"
+    "Mastologia" : {
+      "available" : 0
     },
-    {
-      "name" : "Nefrologia"
+    "Nefrologia" : {
+      "available": 0
     },
-    {
-      "name" : "Nefrologia Pediatrica"
+    "Nefrologia Pediatrica" : {
+      "available": 0
     },
-    {
-      "name" : "Neurologia"
+    "Neurologia" : {
+      "available": 0
     },
-    {
-      "name" : "Neurologia Pediatrica"
+    "Neurologia Pediatrica" : {
+      "available": 0
     },
-    {
-      "name" : "Netrição"
+    "Netrição" : {
+      "available" : 0
     },
-    {
-      "name" : "Nutrologia"
+    "Nutrologia" : {
+      "available": 0
     },
-    {
-      "name" : "Odontologia"
+    "Odontologia" : {
+      "available": 0
     },
-    {
-      "name" : "Oftalmologia"
+    "Oftalmologia" : {
+      "available": 0
     },
-    {
-      "name" : "Ortopedia"
+    "Ortopedia" : {
+      "available": 0
     },
-    {
-      "name" : "Otorrinolaringologia"
+    "Otorrinolaringologia" : {
+      "available" : 0
     },
-    {
-      "name" : "Pediatria"
+    "Pediatria" : {
+      "available": 0
     },
-    {
-      "name" : "Pneumologia"
+    "Pneumologia" : {
+      "available": 0
     },
-    {
-      "name" : "Pneumologia Pediatrica"
+    "Pneumologia Pediatrica" : {
+      "available": 0
     },
-    {
-      "name" : "Psicologia"
+    "Psicologia" : {
+      "available": 0
     },
-    {
-      "name" : "Psiquiatria Pediatrica"
+    "Psiquiatria Pediatrica" : {
+      "available" : 0
     },
-    {
-      "name" : "Quiropraxia"
+    "Quiropraxia" : {
+      "available": 0
     },
-    {
-      "name" : "Reumatologia"
+    "Reumatologia" : {
+      "available": 0
     },
-    {
-      "name" : "Urologia"
+    "Urologia" : {
+      "available": 0
     }
-  ]
+    }
 }

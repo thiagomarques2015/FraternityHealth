@@ -37,17 +37,20 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import br.com.fraternityhealth.R;
+import br.com.fraternityhealth.model.AdapterBase;
+import br.com.fraternityhealth.model.AdapterListener;
 import br.com.fraternityhealth.model.Specialty;
 
 /**
  * Created by Thiago on 09/12/2016.
  */
 
-public class SpecialtyAdapter extends RecyclerView.Adapter<SpecialtyAdapter.ViewHolder> {
+public class SpecialtyAdapter extends RecyclerView.Adapter<SpecialtyAdapter.ViewHolder> implements AdapterBase {
 
     private ArrayList<Specialty> list;
     private Context context;
     private LinearLayoutManager layoutManager;
+    private AdapterListener listener;
 
     public SpecialtyAdapter(Context context, LinearLayoutManager layoutManager, ArrayList<Specialty> list) {
         this.context = context;
@@ -64,7 +67,8 @@ public class SpecialtyAdapter extends RecyclerView.Adapter<SpecialtyAdapter.View
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Specialty specialty = list.get(position);
-        holder.setName(specialty.getName());
+
+        holder.setName(specialty.getName()).setAvailable(specialty.getAvailable());
 
         // Recupera o primeiro item da lista visivel
         //int firstVisible = layoutManager.findFirstCompletelyVisibleItemPosition();
@@ -113,20 +117,41 @@ public class SpecialtyAdapter extends RecyclerView.Adapter<SpecialtyAdapter.View
         return (range < 0)? range * -1 : range;
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder{
+    @Override
+    public void setListener(AdapterListener listener) {
+        this.listener = listener;
+    }
 
-        TextView vName;
+    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+        private final TextView vAvailable;
+        private final TextView vName;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
             vName = (TextView) itemView.findViewById(R.id.name);
+            vAvailable = (TextView) itemView.findViewById(R.id.available);
+
+            itemView.setOnClickListener(this);
         }
 
         public ViewHolder setName(String name){
             if(vName == null) return this;
             vName.setText(name);
             return this;
+        }
+
+        public ViewHolder setAvailable(Integer available){
+            if(vAvailable == null || available == null) return this;
+            vAvailable.setText(String.valueOf(available) + context.getString(R.string.vagancy) + ((available > 1)? "s" : "") );
+            return this;
+        }
+
+        @Override
+        public void onClick(View view) {
+            if(listener != null)
+                listener.onItemClick(view, getAdapterPosition());
         }
     }
 }

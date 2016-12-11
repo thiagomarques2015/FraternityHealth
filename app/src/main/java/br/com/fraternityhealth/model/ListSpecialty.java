@@ -24,41 +24,14 @@
 
 package br.com.fraternityhealth.model;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 
 /**
  * Created by Thiago on 10/12/2016.
  */
 
-public class Location {
-    private String state;
-    private ArrayList<String> cities;
-
-    private Location(){
-        cities = new ArrayList<>();
-    }
-
-    public static Location newInstance(){
-        return new Location();
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public void addCity(String city){
-        cities.add(city);
-    }
-
-    public void setCities(ArrayList<String> cities) {
-        this.cities = cities;
-    }
-
-    public ArrayList<String> getCities() {
-        return cities;
-    }
+public interface ListSpecialty {
+    ArrayList<Specialty> createList(Context context);
 }

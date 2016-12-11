@@ -22,30 +22,39 @@
  * SOFTWARE.
  */
 
-package br.com.fraternityhealth.control;
+package br.com.fraternityhealth.view;
 
-import android.content.Context;
-import android.content.Intent;
+import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.TextView;
 
-import java.util.ArrayList;
+import br.com.fraternityhealth.R;
+import br.com.fraternityhealth.control.Layout;
 
-import br.com.fraternityhealth.model.Location;
-import br.com.fraternityhealth.model.LocationSelected;
-import br.com.fraternityhealth.view.LocationActivity;
+public class MedicalCenterActivity extends AppCompatActivity {
 
-/**
- * Created by Thiago on 10/12/2016.
- */
-
-public class StateSelected implements LocationSelected {
     @Override
-    public void selected(Context context, ArrayList<Location> list, Location location, int position) {
-        String state = list.get(position).getState();
-        ArrayList<String> cities = list.get(position).getCities();
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_medical_center);
+        Layout.toolbar(this);
 
-        Intent intent = new Intent(context, LocationActivity.class);
-        intent.putExtra("state", state);
-        intent.putExtra("cities", cities);
-        context.startActivity(intent);
+        setHeader();
+        createList();
     }
+
+    private void setHeader() {
+        String title = getIntent().getStringExtra("name");
+        TextView vName = (TextView) findViewById(R.id.name);
+        vName.setText(title);
+    }
+
+    private void createList() {
+
+    }
+
 }
