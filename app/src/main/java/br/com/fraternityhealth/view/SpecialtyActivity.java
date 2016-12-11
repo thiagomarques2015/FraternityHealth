@@ -24,17 +24,21 @@
 
 package br.com.fraternityhealth.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 
 import br.com.fraternityhealth.R;
-import br.com.fraternityhealth.control.ActivityCtrl;
-import br.com.fraternityhealth.control.JSONCtrl;
+import br.com.fraternityhealth.control.Layout;
+import br.com.fraternityhealth.control.Json;
+import br.com.fraternityhealth.control.Preferences;
 import br.com.fraternityhealth.control.SpecialtyAdapter;
 import br.com.fraternityhealth.model.AvailableSpecialty;
 
@@ -47,13 +51,30 @@ public class SpecialtyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_specialty);
 
-        ActivityCtrl.toolbar(this);
+        Layout.toolbar(this);
 
         createList();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        String state = Preferences.instance(this).get().getString("state", "");
+        String city = Preferences.instance(this).get().getString("city", "");
+        Log.d(TAG, "Selected " + state + " - " + city);
+        setFilter(state, city);
+    }
+
+    private void setFilter(String state, String city) {
+        TextView vFilter = (TextView) findViewById(R.id.filter);
+        String filter = (state.isEmpty())? "Brasil" : city + ", " + state;
+        vFilter.setText(filter);
+        // @TODO do the new filter
+    }
+
     private void createList() {
-        String json = JSONCtrl.loadJSONFromAsset(this, "specialties");
+        String json = Json.loadJSONFromAsset(this, "specialties");
         Gson gson = new Gson();
         AvailableSpecialty list = gson.fromJson(json, AvailableSpecialty.class);
         Log.d(TAG, list.getSpecialties().size() + " available ");
@@ -68,4 +89,7 @@ public class SpecialtyActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
+    public void openLocations(View view) {
+        startActivity(new Intent(this, LocationActivity.class));
+    }
 }

@@ -33,7 +33,7 @@ import br.com.fraternityhealth.R;
  * Created by Thiago on 09/12/2016.
  */
 
-public class ActivityCtrl {
+public class Layout {
 
     public static void toolbar(AppCompatActivity activity){
         Toolbar toolbar = (Toolbar) activity.findViewById(R.id.toolbar);

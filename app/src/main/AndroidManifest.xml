@@ -21,6 +21,10 @@
         <activity
             android:name=".view.SpecialtyActivity"
             android:label="@string/title_activity_speacilty"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".view.LocationActivity"
+            android:label="@string/title_activity_location"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

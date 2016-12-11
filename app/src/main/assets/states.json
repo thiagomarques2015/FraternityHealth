@@ -1,0 +1,19 @@
+{
+  "states" : {
+    "amazonas" : {
+      "cities" : {
+        "manaus" : true
+      }
+    },
+    "roraima" : {
+      "cities" : {
+        "boa vista" : true
+      }
+    },
+    "pará" : {
+      "cities" : {
+        "belém" : true
+      }
+    }
+  }
+}

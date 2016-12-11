@@ -26,27 +26,51 @@ package br.com.fraternityhealth.control;
 
 import android.content.Context;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.util.ArrayList;
+
+import br.com.fraternityhealth.model.ListItem;
+import br.com.fraternityhealth.model.Location;
+import br.com.fraternityhealth.model.LocationSelected;
 
 /**
- * Created by Thiago on 09/12/2016.
+ * Created by Thiago on 10/12/2016.
  */
 
-public class JSONCtrl {
-    public static String loadJSONFromAsset(Context context, String name) {
-        String json = null;
-        try {
-            InputStream is = context.getAssets().open(name + ".json");
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, "UTF-8");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            return null;
-        }
-        return json;
+public class LocationCtrl {
+    private ListItem listItem;
+    private LocationSelected locationSelected;
+    private final Context context;
+    private ArrayList<Location> list;
+    private Location location;
+    private int position;
+
+    public LocationCtrl(Context context, Location location) {
+        list = new ArrayList<>();
+        this.context = context;
+        this.location = location;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
+    }
+
+    public void setLocationSelected(LocationSelected locationSelected) {
+        this.locationSelected = locationSelected;
+    }
+
+    public void setList(ListItem location) {
+        this.listItem = location;
+    }
+
+    public ArrayList<String> createList(){
+        return listItem.createList(context, list);
+    }
+
+    public void selected(){
+        locationSelected.selected(context, list, location, position);
+    }
+
+    public ArrayList<Location> getList() {
+        return list;
     }
 }

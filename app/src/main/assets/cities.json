@@ -1,0 +1,28 @@
+{
+  "cities" : {
+    "manaus" : {
+      "schedules" : {
+        "xqev12dsd" : true
+      },
+      "states" : {
+        "amazonas" : true
+      }
+    },
+    "boa vista" : {
+      "schedules" : {
+        "xqev12dsd123" : true
+      },
+      "states" : {
+        "roraima" : true
+      }
+    },
+    "belém" : {
+      "schedules" : {
+        "xqev12dsdasd" : true
+      },
+      "states" : {
+        "pará" : true
+      }
+    }
+  }
+}
