@@ -38,9 +38,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:background="#f2f2f2">
+        android:background="@color/background_grey">
 
-        <TextView
+        <!--<TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -49,7 +49,7 @@
             android:textColor="@color/colorPrimary"
             android:textStyle="bold"
             android:id="@+id/total"
-            android:text="236 vagas" />
+            android:text="236 vagas" />-->
 
         <LinearLayout
             android:background="@drawable/background_location_specialty"

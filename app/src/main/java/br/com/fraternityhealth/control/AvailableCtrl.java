@@ -26,41 +26,14 @@ package br.com.fraternityhealth.control;
 
 import android.content.Context;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-
-import br.com.fraternityhealth.model.ListSpecialty;
-import br.com.fraternityhealth.model.Specialty;
+import br.com.fraternityhealth.R;
 
 /**
- * Created by Thiago on 10/12/2016.
+ * Created by Thiago on 19/12/2016.
  */
 
-public class SpecialtyListLocal implements ListSpecialty {
-
-    @Override
-    public ArrayList<Specialty> createList(Context context) {
-        ArrayList<Specialty> specialties = new ArrayList<>();
-        String json = Json.loadJSONFromAsset(context, "specialties");
-        try {
-            JSONObject object = new JSONObject(json);
-
-            JSONObject s = object.getJSONObject("specialties");
-            JSONArray sNames = s.names();
-            for(int i=0; i<sNames.length(); i++){
-                Specialty specialty = Specialty.newInstance();
-                String key = sNames.getString(i);
-                int available = s.getJSONObject(key).getInt("available");
-                specialty.setName(key);
-                specialty.setAvailable(available);
-                specialties.add(specialty);
-            }
-            return specialties;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
+public class AvailableCtrl {
+    public static String print(Context context, int available){
+        return String.valueOf(available) + context.getString(R.string.vagancy) + ((available > 1)? "s" : "");
     }
 }

@@ -33,7 +33,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -77,6 +77,7 @@ public class SpecialtyActivity extends AppCompatActivity implements AdapterListe
         TextView vFilter = (TextView) findViewById(R.id.filter);
         String filter = (state.isEmpty())? "Brasil" : city + ", " + state;
         vFilter.setText(filter);
+        getSupportActionBar().setTitle("256 vagas");
         // @TODO do the new filter
     }
 

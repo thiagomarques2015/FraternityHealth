@@ -144,7 +144,7 @@ public class SpecialtyAdapter extends RecyclerView.Adapter<SpecialtyAdapter.View
 
         public ViewHolder setAvailable(Integer available){
             if(vAvailable == null || available == null) return this;
-            vAvailable.setText(String.valueOf(available) + context.getString(R.string.vagancy) + ((available > 1)? "s" : "") );
+            vAvailable.setText( AvailableCtrl.print(context, available) );
             return this;
         }
 

@@ -24,20 +24,22 @@
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/content_medical_center"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="br.com.fraternityhealth.view.MedicalCenterActivity"
-    tools:showIn="@layout/activity_medical_center">
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-    <android.support.v7.widget.RecyclerView
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipToPadding="false"
-        android:id="@+id/medical"/>
+        android:layout_height="52dp"
+        android:gravity="center_vertical"
+        android:drawableLeft="@drawable/ic_action_calendar_day"
+        android:drawableStart="@drawable/ic_action_calendar_day"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:drawablePadding="16dp"
+        android:textColor="#868686"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:background="@color/background_grey"
+        android:padding="10dp"
+        android:id="@+id/sectionTitle"/>
 
 </LinearLayout>
