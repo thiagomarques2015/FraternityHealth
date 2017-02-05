@@ -28,17 +28,21 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.TextView;
 
 import br.com.fraternityhealth.R;
 import br.com.fraternityhealth.control.Layout;
-import br.com.fraternityhealth.control.RecyclerViewSectionAdapter;
+import br.com.fraternityhealth.control.MedicalCenterCtrl;
+import br.com.fraternityhealth.control.MedicalCenterListLocal;
+import br.com.fraternityhealth.control.SectionAdapterMedicalCenter;
+import br.com.fraternityhealth.model.AdapterListener;
+import br.com.fraternityhealth.model.AppList;
 import br.com.fraternityhealth.model.DataModel;
-import br.com.fraternityhealth.model.MedicalCenter;
 import ca.barrenechea.widget.recyclerview.decoration.DividerDecoration;
 import ca.barrenechea.widget.recyclerview.decoration.StickyHeaderDecoration;
 
-public class MedicalCenterActivity extends AppCompatActivity {
+public class MedicalCenterActivity extends AppCompatActivity implements AppList<DataModel>, AdapterListener {
 
     DataModel allSampleData;
 
@@ -58,19 +62,23 @@ public class MedicalCenterActivity extends AppCompatActivity {
         vName.setText(title);
     }
 
-    private void createList() {
-        populateSampleData();
+    @Override
+    public void createList() {
+        MedicalCenterCtrl control = new MedicalCenterCtrl(this);
+        control.setList(new MedicalCenterListLocal());
+        allSampleData = control.createList();
         createAdapter(allSampleData);
     }
 
-    private void createAdapter(DataModel allSampleData) {
+    @Override
+    public void createAdapter(DataModel allSampleData) {
         RecyclerView mList = (RecyclerView) findViewById(R.id.medical);
         final DividerDecoration divider = new DividerDecoration.Builder(this)
                 .setHeight(R.dimen.default_divider_height)
                 .setPadding(R.dimen.default_divider_padding)
                 .setColorResource(R.color.default_header_color)
                 .build();
-        RecyclerViewSectionAdapter adapter = new RecyclerViewSectionAdapter(this, allSampleData);
+        SectionAdapterMedicalCenter adapter = new SectionAdapterMedicalCenter(this, allSampleData);
         LinearLayoutManager manager = new LinearLayoutManager(this);
         mList.setHasFixedSize(true);
         mList.setLayoutManager(manager);
@@ -78,25 +86,12 @@ public class MedicalCenterActivity extends AppCompatActivity {
         StickyHeaderDecoration decor = new StickyHeaderDecoration(adapter);
         mList.addItemDecoration(decor, 1);
         mList.setAdapter(adapter);
+        // Enable item click
+        adapter.setListener(this);
     }
 
-    private void populateSampleData() {
+    @Override
+    public void onItemClick(View view, int position) {
 
-        allSampleData = new DataModel();
-
-        for (int i = 1; i <= 10; i++) {
-
-            for (int j = 1; j <= 5; j++) {
-                MedicalCenter medicalCenter = MedicalCenter.newInstance();
-                medicalCenter.setName("Item " + i);
-                medicalCenter.setAddress("Av. Nove de Julho");
-                medicalCenter.setAvailable(j + i);
-                allSampleData.addItem(medicalCenter);
-                allSampleData.addSection("Segunda-feira, 19 de dezembro de 2016");
-                allSampleData.addCodeSection(i);
-            }
-
-        }
     }
-
 }

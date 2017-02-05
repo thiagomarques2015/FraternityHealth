@@ -32,6 +32,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import br.com.fraternityhealth.R;
+import br.com.fraternityhealth.model.AdapterBase;
+import br.com.fraternityhealth.model.AdapterListener;
 import br.com.fraternityhealth.model.DataModel;
 import br.com.fraternityhealth.model.MedicalCenter;
 import ca.barrenechea.widget.recyclerview.decoration.StickyHeaderAdapter;
@@ -39,13 +41,14 @@ import ca.barrenechea.widget.recyclerview.decoration.StickyHeaderAdapter;
 /**
  * Created by Thiago on 19/12/2016.
  */
-public class RecyclerViewSectionAdapter extends RecyclerView.Adapter<RecyclerViewSectionAdapter.ItemViewHolder> implements
-        StickyHeaderAdapter<RecyclerViewSectionAdapter.SectionViewHolder> {
+public class SectionAdapterMedicalCenter extends RecyclerView.Adapter<SectionAdapterMedicalCenter.ItemViewHolder> implements
+        StickyHeaderAdapter<SectionAdapterMedicalCenter.SectionViewHolder>, AdapterBase {
 
     private DataModel allData;
     private Context context;
+    private AdapterListener adapterListener;
 
-    public RecyclerViewSectionAdapter(Context context, DataModel data) {
+    public SectionAdapterMedicalCenter(Context context, DataModel data) {
         this.allData = data;
         this.context = context;
     }
@@ -64,7 +67,7 @@ public class RecyclerViewSectionAdapter extends RecyclerView.Adapter<RecyclerVie
     }
 
     @Override
-    public void onBindHeaderViewHolder(RecyclerViewSectionAdapter.SectionViewHolder viewholder, int position) {
+    public void onBindHeaderViewHolder(SectionAdapterMedicalCenter.SectionViewHolder viewholder, int position) {
         String sectionName = allData.getHeader(position);
         viewholder.sectionTitle.setText(sectionName);
     }
@@ -78,7 +81,7 @@ public class RecyclerViewSectionAdapter extends RecyclerView.Adapter<RecyclerVie
 
     @Override
     public void onBindViewHolder(ItemViewHolder holder, int position) {
-        MedicalCenter item = allData.getMedicalCenter(position);
+        MedicalCenter item = (MedicalCenter) allData.getItem(position);
         holder.itemTitle.setText(item.getName());
         holder.itemSubtitle.setText(item.getAddress());
         holder.itemAvailable.setText(AvailableCtrl.print( context, item.getAvailable() ));
@@ -87,6 +90,11 @@ public class RecyclerViewSectionAdapter extends RecyclerView.Adapter<RecyclerVie
     @Override
     public int getItemCount() {
         return allData.totalItem();
+    }
+
+    @Override
+    public void setListener(AdapterListener listener) {
+        this.adapterListener = listener;
     }
 
     // SectionViewHolder Class for Sections
@@ -100,7 +108,7 @@ public class RecyclerViewSectionAdapter extends RecyclerView.Adapter<RecyclerVie
     }
 
     // ItemViewHolder Class for Items in each Section
-    public static class ItemViewHolder extends RecyclerView.ViewHolder {
+    public class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         final TextView itemTitle;
         private final TextView itemSubtitle;
@@ -111,6 +119,13 @@ public class RecyclerViewSectionAdapter extends RecyclerView.Adapter<RecyclerVie
             itemTitle = (TextView) itemView.findViewById(R.id.title);
             itemSubtitle = (TextView) itemView.findViewById(R.id.subtitle);
             itemAvailable = (TextView) itemView.findViewById(R.id.available);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            if(adapterListener != null)
+                adapterListener.onItemClick(view, getAdapterPosition());
         }
     }
 }

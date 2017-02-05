@@ -22,29 +22,19 @@
  * SOFTWARE.
  */
 
-package br.com.fraternityhealth.control;
-
-import android.content.Context;
-
-import java.util.ArrayList;
-
-import br.com.fraternityhealth.model.ControlList;
-import br.com.fraternityhealth.model.ListSpecialty;
-import br.com.fraternityhealth.model.Specialty;
+package br.com.fraternityhealth.model;
 
 /**
- * Created by Thiago on 10/12/2016.
+ * Created by Thiago on 05/02/2017.
  */
 
-public class SpecialtyCtrl extends ControlList<ListSpecialty, ArrayList<Specialty>> {
+public abstract class ControlList<T, T1> {
 
-    private final Context context;
+    protected T list;
 
-    public SpecialtyCtrl(Context context) {
-        this.context = context;
+    public void setList(T list) {
+        this.list = list;
     }
 
-    public ArrayList<Specialty> createList(){
-        return list.createList(context);
-    }
+    public abstract T1 createList();
 }

@@ -45,10 +45,11 @@ import br.com.fraternityhealth.control.SpecialtyAdapter;
 import br.com.fraternityhealth.control.SpecialtyCtrl;
 import br.com.fraternityhealth.control.SpecialtyListLocal;
 import br.com.fraternityhealth.model.AdapterListener;
+import br.com.fraternityhealth.model.AppList;
 import br.com.fraternityhealth.model.AvailableSpecialty;
 import br.com.fraternityhealth.model.Specialty;
 
-public class SpecialtyActivity extends AppCompatActivity implements AdapterListener {
+public class SpecialtyActivity extends AppCompatActivity implements AppList<ArrayList<Specialty>>, AdapterListener {
 
     private static final String TAG = "SpecialtyActivity";
     private ArrayList<Specialty> list;
@@ -81,15 +82,17 @@ public class SpecialtyActivity extends AppCompatActivity implements AdapterListe
         // @TODO do the new filter
     }
 
-    private void createList() {
+    @Override
+    public void createList() {
         SpecialtyCtrl control = new SpecialtyCtrl(this);
-        control.setListSpecialty(new SpecialtyListLocal());
+        control.setList(new SpecialtyListLocal());
         list = control.createList();
         Log.d(TAG, list.size() + " available ");
         createAdapter(list);
     }
 
-    private void createAdapter(ArrayList<Specialty> list) {
+    @Override
+    public void createAdapter(ArrayList<Specialty> list) {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         SpecialtyAdapter adapter = new SpecialtyAdapter(this, layoutManager, list);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.specialties);

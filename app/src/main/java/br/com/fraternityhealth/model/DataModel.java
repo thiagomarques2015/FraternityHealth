@@ -30,9 +30,9 @@ import java.util.HashMap;
 /**
  * Created by Thiago on 19/12/2016.
  */
-public class DataModel {
+public abstract class DataModel<T> {
     private ArrayList<String> allItemsInSection;
-    private ArrayList<MedicalCenter> allItems;
+    private ArrayList<T> allItems;
     private ArrayList<Long> allCodeInSection;
 
 
@@ -48,7 +48,7 @@ public class DataModel {
         return this;
     }
 
-    public DataModel addItem(MedicalCenter item){
+    public DataModel addItem(T item){
         allItems.add(item);
         return this;
     }
@@ -78,7 +78,7 @@ public class DataModel {
         return allCodeInSection.size();
     }
 
-    public MedicalCenter getMedicalCenter(int position) {
+    public T getItem(int position) {
         return allItems.get(position);
     }
 }

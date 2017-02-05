@@ -26,25 +26,34 @@ package br.com.fraternityhealth.control;
 
 import android.content.Context;
 
-import java.util.ArrayList;
-
-import br.com.fraternityhealth.model.ControlList;
-import br.com.fraternityhealth.model.ListSpecialty;
-import br.com.fraternityhealth.model.Specialty;
+import br.com.fraternityhealth.model.DataModel;
+import br.com.fraternityhealth.model.DataModelMedicalCenter;
+import br.com.fraternityhealth.model.ListMedicalCenter;
+import br.com.fraternityhealth.model.MedicalCenter;
 
 /**
- * Created by Thiago on 10/12/2016.
+ * Created by Thiago on 05/02/2017.
  */
 
-public class SpecialtyCtrl extends ControlList<ListSpecialty, ArrayList<Specialty>> {
+public class MedicalCenterListLocal implements ListMedicalCenter {
+    @Override
+    public DataModelMedicalCenter createList(Context context) {
+        DataModel allSampleData = new DataModelMedicalCenter();
 
-    private final Context context;
+        for (int i = 1; i <= 10; i++) {
 
-    public SpecialtyCtrl(Context context) {
-        this.context = context;
-    }
+            for (int j = 1; j <= 5; j++) {
+                MedicalCenter medicalCenter = MedicalCenter.newInstance();
+                medicalCenter.setName("Item " + i);
+                medicalCenter.setAddress("Av. Nove de Julho");
+                medicalCenter.setAvailable(j + i);
+                allSampleData.addItem(medicalCenter);
+                allSampleData.addSection("Segunda-feira, 19 de dezembro de 2016");
+                allSampleData.addCodeSection(i);
+            }
 
-    public ArrayList<Specialty> createList(){
-        return list.createList(context);
+        }
+
+        return (DataModelMedicalCenter) allSampleData;
     }
 }

@@ -22,29 +22,18 @@
  * SOFTWARE.
  */
 
-package br.com.fraternityhealth.control;
+package br.com.fraternityhealth.view;
 
-import android.content.Context;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 
-import java.util.ArrayList;
+import br.com.fraternityhealth.R;
 
-import br.com.fraternityhealth.model.ControlList;
-import br.com.fraternityhealth.model.ListSpecialty;
-import br.com.fraternityhealth.model.Specialty;
+public class DoctorActivity extends AppCompatActivity {
 
-/**
- * Created by Thiago on 10/12/2016.
- */
-
-public class SpecialtyCtrl extends ControlList<ListSpecialty, ArrayList<Specialty>> {
-
-    private final Context context;
-
-    public SpecialtyCtrl(Context context) {
-        this.context = context;
-    }
-
-    public ArrayList<Specialty> createList(){
-        return list.createList(context);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_doctor);
     }
 }

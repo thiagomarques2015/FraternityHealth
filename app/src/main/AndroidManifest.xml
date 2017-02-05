@@ -29,7 +29,8 @@
         <activity
             android:name=".view.MedicalCenterActivity"
             android:label="@string/title_activity_medical_center"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".view.DoctorActivity"></activity>
     </application>
 
 </manifest>

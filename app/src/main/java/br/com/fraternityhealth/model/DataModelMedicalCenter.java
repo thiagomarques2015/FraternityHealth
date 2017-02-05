@@ -22,29 +22,11 @@
  * SOFTWARE.
  */
 
-package br.com.fraternityhealth.control;
-
-import android.content.Context;
-
-import java.util.ArrayList;
-
-import br.com.fraternityhealth.model.ControlList;
-import br.com.fraternityhealth.model.ListSpecialty;
-import br.com.fraternityhealth.model.Specialty;
+package br.com.fraternityhealth.model;
 
 /**
- * Created by Thiago on 10/12/2016.
+ * Created by Thiago on 05/02/2017.
  */
 
-public class SpecialtyCtrl extends ControlList<ListSpecialty, ArrayList<Specialty>> {
-
-    private final Context context;
-
-    public SpecialtyCtrl(Context context) {
-        this.context = context;
-    }
-
-    public ArrayList<Specialty> createList(){
-        return list.createList(context);
-    }
+public class DataModelMedicalCenter extends DataModel<MedicalCenter> {
 }
