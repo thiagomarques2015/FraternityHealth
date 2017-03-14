@@ -29,48 +29,55 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="br.com.fraternityhealth.view.DoctorActivity">
+    tools:context="br.com.fraternityhealth.view.ViewDoctorActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="230dp"
+        android:fitsSystemWindows="true"
         android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/main.collapsing"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:titleEnabled="false"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleMarginStart="48dp"
+            app:expandedTitleMarginEnd="64dp"
+            >
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
+            app:layout_collapseMode="pin"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/activity_vertical_margin"
-            android:gravity="center_vertical">
-
-            <ImageView
-                android:layout_width="62dp"
-                android:layout_height="62dp"
-                android:src="@drawable/stethoscope_blue"
-                android:scaleType="center"
-                android:background="@drawable/background_circle_icon_specialty_white"/>
-
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="@dimen/activity_vertical_margin"
                 android:orientation="vertical"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
-                >
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="82dp"
+                    android:layout_height="82dp"
+                    app:layout_collapseMode="parallax"
+                    android:background="@drawable/stethoscope"
+                    android:scaleType="center"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
                     android:id="@+id/name"
                     android:textColor="@android:color/white"
-                    android:textSize="17sp"
+                    android:textSize="22sp"
                     android:text="Clínico Geral"/>
 
                 <TextView
@@ -78,14 +85,14 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/address"
                     android:textColor="@android:color/white"
-                    android:textSize="17sp"
-                    android:text="Av. Nove de Julho"/>
-
+                    android:textSize="14sp"
+                    android:text="Quinta-feira, 27 de outubro às 07:45"/>
             </LinearLayout>
-        </LinearLayout>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_doctor" />
+    <include layout="@layout/content_view_doctor" />
 
 </android.support.design.widget.CoordinatorLayout>

@@ -6,4 +6,5 @@
     <dimen name="content_main_button_size">160dp</dimen>
     <dimen name="default_divider_height">1dp</dimen>
     <dimen name="default_divider_padding">1dp</dimen>
+    <dimen name="content_padding_title_view_doctor">34dp</dimen>
 </resources>

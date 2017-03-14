@@ -22,25 +22,17 @@
  * SOFTWARE.
  */
 
-package br.com.fraternityhealth.control;
-
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-
-import br.com.fraternityhealth.R;
+package br.com.fraternityhealth.model;
 
 /**
- * Created by Thiago on 09/12/2016.
+ * Created by Thiago on 05/02/2017.
  */
 
-public class Layout {
+public class DataModelDoctor extends DataModel<MedicalCenter> {
 
-    public static void toolbar(AppCompatActivity activity){
-        Toolbar toolbar = (Toolbar) activity.findViewById(R.id.toolbar);
-        activity.setSupportActionBar(toolbar);
+    private DataModelDoctor(){}
 
-        if(activity.getSupportActionBar() == null) return;
-        activity.getSupportActionBar().setHomeButtonEnabled(true);
-        activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    public static DataModelDoctor newInstance(){
+        return new DataModelDoctor();
     }
 }

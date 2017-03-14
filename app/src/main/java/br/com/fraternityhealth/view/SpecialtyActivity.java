@@ -78,7 +78,8 @@ public class SpecialtyActivity extends AppCompatActivity implements AppList<Arra
         TextView vFilter = (TextView) findViewById(R.id.filter);
         String filter = (state.isEmpty())? "Brasil" : city + ", " + state;
         vFilter.setText(filter);
-        getSupportActionBar().setTitle("256 vagas");
+        if(getSupportActionBar() != null)
+            getSupportActionBar().setTitle("256 vagas");
         // @TODO do the new filter
     }
 

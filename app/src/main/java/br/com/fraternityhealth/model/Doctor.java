@@ -24,14 +24,53 @@
 
 package br.com.fraternityhealth.model;
 
-import android.content.Context;
-
 import java.util.ArrayList;
 
 /**
- * Created by Thiago on 10/12/2016.
+ * Created by Thiago on 05/03/2017.
  */
 
-public interface ListMedicalCenter {
-    DataModelMedicalCenter createList(Context context);
+public class Doctor {
+    String name, crm, description;
+    ArrayList<String> schedule;
+
+    private Doctor(){
+        schedule = new ArrayList<>();
+    }
+
+    public static Doctor newInstance(){
+        return new Doctor();
+    }
+
+    public ArrayList<String> getSchedule() {
+        return schedule;
+    }
+
+    public void addSchedule(String schedule) {
+        this.schedule.add(schedule);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCrm() {
+        return crm;
+    }
+
+    public void setCrm(String crm) {
+        this.crm = crm;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

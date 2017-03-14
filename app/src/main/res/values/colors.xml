@@ -6,4 +6,5 @@
     <color name="background_grey">#f2f2f2</color>
     <color name="default_header_color">#e4e4e4</color>
     <color name="subtitle_color">#ccc</color>
+    <color name="schedule">#3ad60f</color>
 </resources>

@@ -24,23 +24,25 @@
 
 package br.com.fraternityhealth.control;
 
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.content.Context;
 
-import br.com.fraternityhealth.R;
+import br.com.fraternityhealth.model.ControlList;
+import br.com.fraternityhealth.model.DataModelDoctor;
+import br.com.fraternityhealth.model.ListItem;
 
 /**
- * Created by Thiago on 09/12/2016.
+ * Created by Thiago on 05/02/2017.
  */
 
-public class Layout {
+public class DoctorCtrl extends ControlList<ListItem<DataModelDoctor>, DataModelDoctor> {
+    private final Context context;
 
-    public static void toolbar(AppCompatActivity activity){
-        Toolbar toolbar = (Toolbar) activity.findViewById(R.id.toolbar);
-        activity.setSupportActionBar(toolbar);
+    public DoctorCtrl(Context context) {
+        this.context = context;
+    }
 
-        if(activity.getSupportActionBar() == null) return;
-        activity.getSupportActionBar().setHomeButtonEnabled(true);
-        activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    @Override
+    public DataModelDoctor createList() {
+        return list.createList(context);
     }
 }

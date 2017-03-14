@@ -24,6 +24,7 @@
 
 package br.com.fraternityhealth.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -37,12 +38,14 @@ import br.com.fraternityhealth.control.MedicalCenterCtrl;
 import br.com.fraternityhealth.control.MedicalCenterListLocal;
 import br.com.fraternityhealth.control.SectionAdapterMedicalCenter;
 import br.com.fraternityhealth.model.AdapterListener;
+import br.com.fraternityhealth.model.AppActivity;
 import br.com.fraternityhealth.model.AppList;
 import br.com.fraternityhealth.model.DataModel;
+import br.com.fraternityhealth.model.MedicalCenter;
 import ca.barrenechea.widget.recyclerview.decoration.DividerDecoration;
 import ca.barrenechea.widget.recyclerview.decoration.StickyHeaderDecoration;
 
-public class MedicalCenterActivity extends AppCompatActivity implements AppList<DataModel>, AdapterListener {
+public class MedicalCenterActivity extends AppActivity implements AppList<DataModel>, AdapterListener {
 
     DataModel allSampleData;
 
@@ -50,7 +53,6 @@ public class MedicalCenterActivity extends AppCompatActivity implements AppList<
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medical_center);
-        Layout.toolbar(this);
 
         setHeader();
         createList();
@@ -92,6 +94,9 @@ public class MedicalCenterActivity extends AppCompatActivity implements AppList<
 
     @Override
     public void onItemClick(View view, int position) {
-
+        MedicalCenter medicalCenter = (MedicalCenter) allSampleData.getItem(position);
+        Intent intent = new Intent(this, DoctorActivity.class);
+        intent.putExtra("medical_center", medicalCenter);
+        startActivity(intent);
     }
 }

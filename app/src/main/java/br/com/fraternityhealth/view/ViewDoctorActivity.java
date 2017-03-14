@@ -22,25 +22,23 @@
  * SOFTWARE.
  */
 
-package br.com.fraternityhealth.control;
+package br.com.fraternityhealth.view;
 
+import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 
 import br.com.fraternityhealth.R;
+import br.com.fraternityhealth.control.Layout;
+import br.com.fraternityhealth.model.AppActivity;
 
-/**
- * Created by Thiago on 09/12/2016.
- */
+public class ViewDoctorActivity extends AppActivity {
 
-public class Layout {
-
-    public static void toolbar(AppCompatActivity activity){
-        Toolbar toolbar = (Toolbar) activity.findViewById(R.id.toolbar);
-        activity.setSupportActionBar(toolbar);
-
-        if(activity.getSupportActionBar() == null) return;
-        activity.getSupportActionBar().setHomeButtonEnabled(true);
-        activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_view_doctor);
+        if(getSupportActionBar() != null)
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
+
 }

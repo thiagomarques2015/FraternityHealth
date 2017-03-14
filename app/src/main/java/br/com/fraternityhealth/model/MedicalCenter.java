@@ -24,11 +24,13 @@
 
 package br.com.fraternityhealth.model;
 
+import java.io.Serializable;
+
 /**
  * Created by Thiago on 19/12/2016.
  */
 
-public class MedicalCenter {
+public class MedicalCenter implements Serializable {
 
     private String name, address;
     private int available;

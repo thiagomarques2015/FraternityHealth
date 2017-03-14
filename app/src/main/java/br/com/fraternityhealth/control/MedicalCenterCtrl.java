@@ -27,14 +27,15 @@ package br.com.fraternityhealth.control;
 import android.content.Context;
 
 import br.com.fraternityhealth.model.ControlList;
+import br.com.fraternityhealth.model.DataModelDoctor;
 import br.com.fraternityhealth.model.DataModelMedicalCenter;
-import br.com.fraternityhealth.model.ListMedicalCenter;
+import br.com.fraternityhealth.model.ListItem;
 
 /**
  * Created by Thiago on 05/02/2017.
  */
 
-public class MedicalCenterCtrl extends ControlList<ListMedicalCenter, DataModelMedicalCenter> {
+public class MedicalCenterCtrl extends ControlList<ListItem<DataModelMedicalCenter>, DataModelMedicalCenter> {
     private final Context context;
 
     public MedicalCenterCtrl(Context context) {

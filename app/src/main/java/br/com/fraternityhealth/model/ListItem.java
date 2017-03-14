@@ -22,25 +22,16 @@
  * SOFTWARE.
  */
 
-package br.com.fraternityhealth.control;
+package br.com.fraternityhealth.model;
 
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.content.Context;
 
-import br.com.fraternityhealth.R;
+import java.util.ArrayList;
 
 /**
- * Created by Thiago on 09/12/2016.
+ * Created by Thiago on 10/12/2016.
  */
 
-public class Layout {
-
-    public static void toolbar(AppCompatActivity activity){
-        Toolbar toolbar = (Toolbar) activity.findViewById(R.id.toolbar);
-        activity.setSupportActionBar(toolbar);
-
-        if(activity.getSupportActionBar() == null) return;
-        activity.getSupportActionBar().setHomeButtonEnabled(true);
-        activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    }
+public interface ListItem<T> {
+    T createList(Context context);
 }

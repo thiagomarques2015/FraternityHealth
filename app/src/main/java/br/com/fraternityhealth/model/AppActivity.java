@@ -22,25 +22,45 @@
  * SOFTWARE.
  */
 
-package br.com.fraternityhealth.control;
+package br.com.fraternityhealth.model;
 
+import android.os.Bundle;
+import android.support.annotation.LayoutRes;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.MenuItem;
 
-import br.com.fraternityhealth.R;
+import br.com.fraternityhealth.control.Layout;
 
 /**
- * Created by Thiago on 09/12/2016.
+ * Created by Thiago on 14/03/2017.
  */
 
-public class Layout {
+public class AppActivity extends AppCompatActivity {
 
-    public static void toolbar(AppCompatActivity activity){
-        Toolbar toolbar = (Toolbar) activity.findViewById(R.id.toolbar);
-        activity.setSupportActionBar(toolbar);
+    private static final String LABEL = "AppActivity";
 
-        if(activity.getSupportActionBar() == null) return;
-        activity.getSupportActionBar().setHomeButtonEnabled(true);
-        activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void setContentView(@LayoutRes int layoutResID) {
+        super.setContentView(layoutResID);
+
+        Layout.toolbar(this);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                Log.d(LABEL, "Clicou na home {actionbar}");
+                onBackPressed();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -27,33 +27,40 @@ package br.com.fraternityhealth.control;
 import android.content.Context;
 
 import br.com.fraternityhealth.model.DataModel;
+import br.com.fraternityhealth.model.DataModelDoctor;
 import br.com.fraternityhealth.model.DataModelMedicalCenter;
+import br.com.fraternityhealth.model.Doctor;
 import br.com.fraternityhealth.model.ListItem;
 import br.com.fraternityhealth.model.MedicalCenter;
 
 /**
- * Created by Thiago on 05/02/2017.
+ * Created by Thiago on 05/03/2017.
  */
 
-public class MedicalCenterListLocal implements ListItem<DataModelMedicalCenter> {
+public class DoctorListLocal implements ListItem<DataModelDoctor> {
+
     @Override
-    public DataModelMedicalCenter createList(Context context) {
-        DataModel allSampleData = new DataModelMedicalCenter();
+    public DataModelDoctor createList(Context context) {
+
+        DataModel allSampleData = DataModelDoctor.newInstance();
 
         for (int i = 1; i <= 10; i++) {
 
             for (int j = 1; j <= 5; j++) {
-                MedicalCenter medicalCenter = MedicalCenter.newInstance();
-                medicalCenter.setName("Item " + i);
-                medicalCenter.setAddress("Av. Nove de Julho");
-                medicalCenter.setAvailable(j + i);
-                allSampleData.addItem(medicalCenter);
+                Doctor doctor = Doctor.newInstance();
+                doctor.setName("Tatiane Oliveira da Silva " + i);
+                doctor.setDescription("Não atende menores de 14 anos");
+                doctor.setCrm("CRM-AM 163-986");
+                for(int k=0; k<=5; k++)
+                    doctor.addSchedule(String.format("%s%s:%s%s", i, k, i, k));
+                //noinspection unchecked
+                allSampleData.addItem(doctor);
                 allSampleData.addSection("Segunda-feira, 19 de dezembro de 2016");
                 allSampleData.addCodeSection(i);
             }
 
         }
 
-        return (DataModelMedicalCenter) allSampleData;
+        return (DataModelDoctor) allSampleData;
     }
 }
