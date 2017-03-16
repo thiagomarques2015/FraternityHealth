@@ -45,11 +45,12 @@ import br.com.fraternityhealth.control.SpecialtyAdapter;
 import br.com.fraternityhealth.control.SpecialtyCtrl;
 import br.com.fraternityhealth.control.SpecialtyListLocal;
 import br.com.fraternityhealth.model.AdapterListener;
+import br.com.fraternityhealth.model.AppActivity;
 import br.com.fraternityhealth.model.AppList;
 import br.com.fraternityhealth.model.AvailableSpecialty;
 import br.com.fraternityhealth.model.Specialty;
 
-public class SpecialtyActivity extends AppCompatActivity implements AppList<ArrayList<Specialty>>, AdapterListener {
+public class SpecialtyActivity extends AppActivity implements AppList<ArrayList<Specialty>>, AdapterListener {
 
     private static final String TAG = "SpecialtyActivity";
     private ArrayList<Specialty> list;
@@ -58,8 +59,6 @@ public class SpecialtyActivity extends AppCompatActivity implements AppList<Arra
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_specialty);
-
-        Layout.toolbar(this);
 
         createList();
     }

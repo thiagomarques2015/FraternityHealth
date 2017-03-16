@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "418907743055",
+    "firebase_url": "https://fraternity-health.firebaseio.com",
+    "project_id": "fraternity-health",
+    "storage_bucket": "fraternity-health.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:418907743055:android:42278334325a6b1e",
+        "android_client_info": {
+          "package_name": "br.com.fraternityhealth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "418907743055-1pd5l6d6v5vielca63medfr7svrvln8e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.fraternityhealth",
+            "certificate_hash": "f39c0d37fdfbbc297a541934f87619a286597261"
+          }
+        },
+        {
+          "client_id": "418907743055-gc5bm0vu0fgrc0rdic4cdd5o8t8mt9i8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7dV2mJp5-XsW971AXwVE4mbLtfwui1OY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "418907743055-gc5bm0vu0fgrc0rdic4cdd5o8t8mt9i8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

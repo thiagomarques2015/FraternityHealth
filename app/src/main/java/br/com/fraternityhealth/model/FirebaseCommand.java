@@ -24,45 +24,12 @@
 
 package br.com.fraternityhealth.model;
 
-import android.os.Bundle;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.MenuItem;
-
-import br.com.fraternityhealth.control.Layout;
+import android.content.Context;
 
 /**
- * Created by Thiago on 14/03/2017.
+ * Created by Thiago on 16/03/2017.
  */
 
-public abstract class AppActivity<T> extends AppCompatActivity {
-
-    private static final String LABEL = "AppActivity";
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
-    public void setContentView(@LayoutRes int layoutResID) {
-        super.setContentView(layoutResID);
-
-        Layout.toolbar(this);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case android.R.id.home:
-                //Log.d(LABEL, "Clicou na home {actionbar}");
-                onBackPressed();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    protected void execute(T command){}
+public interface FirebaseCommand {
+    void execute(Context context);
 }

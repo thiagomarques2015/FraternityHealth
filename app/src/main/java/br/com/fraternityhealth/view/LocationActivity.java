@@ -40,9 +40,10 @@ import br.com.fraternityhealth.control.LocationCtrl;
 import br.com.fraternityhealth.control.LocationStateSelected;
 import br.com.fraternityhealth.control.LocationStatesLocal;
 import br.com.fraternityhealth.model.AdapterListener;
+import br.com.fraternityhealth.model.AppActivity;
 import br.com.fraternityhealth.model.Location;
 
-public class LocationActivity extends AppCompatActivity implements AdapterListener {
+public class LocationActivity extends AppActivity implements AdapterListener {
 
     public static final String TAG = "LocationActivity";
     private LocationCtrl control;
@@ -53,7 +54,6 @@ public class LocationActivity extends AppCompatActivity implements AdapterListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
-        Layout.toolbar(this);
 
         createList();
     }

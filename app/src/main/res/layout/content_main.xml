@@ -46,7 +46,7 @@
             android:id="@+id/available"
             android:textColor="@android:color/white"
             android:textSize="52sp"
-            android:text="236 vagas"/>
+            android:text="Carregando..."/>
 
         <LinearLayout
             android:layout_width="match_parent"

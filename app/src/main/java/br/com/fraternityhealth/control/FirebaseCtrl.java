@@ -22,47 +22,33 @@
  * SOFTWARE.
  */
 
-package br.com.fraternityhealth.model;
+package br.com.fraternityhealth.control;
 
-import android.os.Bundle;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.MenuItem;
-
-import br.com.fraternityhealth.control.Layout;
+import android.content.Context;
+import br.com.fraternityhealth.model.FirebaseCommand;
+import br.com.fraternityhealth.view.MainActivity;
 
 /**
- * Created by Thiago on 14/03/2017.
+ * Created by Thiago on 16/03/2017.
  */
 
-public abstract class AppActivity<T> extends AppCompatActivity {
+public class FirebaseCtrl {
+    private static final String TAG = "FirebaseCtrl";
+    private Context context;
+    private FirebaseCommand command;
 
-    private static final String LABEL = "AppActivity";
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public FirebaseCtrl(Context context) {
+        this.context = context;
     }
 
-    @Override
-    public void setContentView(@LayoutRes int layoutResID) {
-        super.setContentView(layoutResID);
-
-        Layout.toolbar(this);
+    public FirebaseCtrl setCommand(FirebaseCommand command) {
+        this.command = command;
+        return this;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case android.R.id.home:
-                //Log.d(LABEL, "Clicou na home {actionbar}");
-                onBackPressed();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
+    public void execute(){
+        if(context == null) throw new NullPointerException("O contexto prcisa ser iniciado");
+        if (command == null) throw new NullPointerException("Nenhum comando iniciado ");
+        command.execute(context);
     }
-
-    protected void execute(T command){}
 }
